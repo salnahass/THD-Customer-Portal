@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<title>Dashboard</title>
+
+</head>
+<body>
+<div class="navbar">
+    <div class="navbar-brand">Toyota Heavy Duty</div>
+    <a href="#home">Home</a>
+    <a href="#fleet">Ownership</a>
+    <a href="#costs">Insights</a>
+    <a href="#service">Store</a>
+    <a href="#contracts">Knowledge</a>
+</div>
+<div class="dashboard">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="widget flex-item">
+      <h2>Division</h2>
+      <select>
+        <option>DemoDivision</option>
+        <option>DemoDivision2</option>
+        <option>DemoDivision3</option>
+        <!-- Additional options -->
+      </select>
+    </div>
+    <div class="widget flex-item">
+      <h2>Country</h2>
+      <select>
+        <option>All</option>
+        <!-- Additional options -->
+      </select>
+    </div>
+    <div class="widget flex-item">
+      <h2>Site</h2>
+      <select>
+        <option>All</option>
+        <option>Columbus</option>
+        <option>Chicago</option>
+        <option>Indianapolis</option>
+        <!-- Additional options -->
+      </select>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <!-- My Fleet Widget -->
+    <div class="widget flex-item">
+      <h2>My Fleet</h2>
+      <select>
+        <option>2022-12</option>
+        <option>2022-11</option>
+        <option>2022-10</option>
+        <!-- Additional options -->
+      </select>
+      <p>Total Sites</p>
+      <h1>3</h1>
+      <p>Total Machines</p>
+      <h1>431</h1>
+      <p>Machines without Contract</p>
+      <h1>89</h1>
+      <br>
+    <div class="widget">
+    <h2>My Sites</h2>
+    <div class="map"></div>
+        <img src="map.PNG">
+    </div>
+    </div>
+
+    <!-- My Sites Map Widget -->
+    <!-- <div class="widget flex-item">
+      <h2>My Sites</h2>
+      <div class="map"></div>
+    </div> -->
+    <style>
+        .graph { display: none; }
+        .active-graph { display: block; }
+        /* Add any additional styling you need here */
+    </style>
+    <!-- Graphs and Data -->
+    <div class="container mt-3">
+        <div class="widget full-width">
+          <h2>Dashboard Widgets</h2>
+          <select id="chartSelector" class="form-select" onchange="showChart()">
+            <option value="totalmachines">Total Machines</option>
+            <option value="avgrun">Average Run Hours</option>
+            <option value="fleetage">Average Machine Age</option>
+            <option value="machinesoncontract">Machines on Contract</option>
+          </select>
+                <div id="totalmachines" class="graph active-graph">
+                    <img src="totalmachines.png" alt="Total Machines">
+                </div>
+                <div id="avgrun" class="graph">
+                    <img src="avgrun.png" alt="Average Run Hours">
+                </div>
+                <div id="fleetage" class="graph">
+                    <img src="fleetage.png" alt="Average Machine Age">
+                </div>
+                <div id="machinesoncontract" class="graph">
+                    <img src="machinesoncontract.png" alt="Machines on Contract">
+                </div>
+        
+        </div>
+      </div>
+  </div>
+
+  <script>
+    function showChart() {
+      // Hide all graphs
+      var graphs = document.getElementsByClassName('graph');
+      for(var i = 0; i < graphs.length; i++) {
+        graphs[i].style.display = 'none';
+      }
+      
+      // Get the selected value from the dropdown
+      var selectedChart = document.getElementById('chartSelector').value;
+    
+      // Show the selected graph
+      var graphToShow = document.getElementById(selectedChart);
+      graphToShow.style.display = 'block';
+    }
+    </script>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<title>Dashboard Mockup with Horizontal Widgets</title>
+<style>
+  /* Existing styles */
+ 
+</style>
+</head>
+<body>
+<div class="navbar">
+    <div class="navbar-brand">Toyota Heavy Duty</div>
+    <a href="#home">Home</a>
+    <a href="#fleet">Ownership</a>
+    <a href="#costs">Insights</a>
+    <a href="#service">Store</a>
+    <a href="#contracts">Knowledge</a>
+</div>
+
+<div class="dashboard-container">
+  <div class="header">
+    <h1>Welcome, Valued Customer</h1>
+    <button class="button">Filter by</button>
+    <button class="button">Add widgets</button>
+  </div>
+
+  <div class="grid">
+    <!-- Core Fleet Widget -->
+    <div class="widget">
+      <h2>Core Fleet</h2>
+      <p>You have 409 machines in your fleet</p>
+      <img src="pie-chart-placeholder.svg" alt="Pie Chart Placeholder">
+
+      <!-- Dropdown for selecting year -->
+      <select name="year" class="year-dropdown">
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+
+      <!-- Fleet Report Button -->
+      <button class="button">Fleet Report</button>
+    </div>
+
+    <!-- Cost by Contract Type Widget -->
+    <div class="widget">
+      <h2>Cost by Contract Type</h2>
+      <img src="bar-chart-placeholder.png" alt="Bar Chart Placeholder">
+      
+      <!-- Dropdown for selecting year -->
+      <select name="year" class="year-dropdown">
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+
+      <!-- Display Total Cost -->
+      <p>Total cost for the period is <b>$2,693,324</b></p>
+    </div>
+
+    <!-- Damage Cost Widget -->
+    <div class="widget">
+      <h2>Damage Cost</h2>
+      <img src="line-chart-placeholder.png" alt="Line Chart Placeholder">
+      
+      <!-- Dropdown for selecting year -->
+      <select name="year" class="year-dropdown">
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+
+      <!-- Display Average Damage Cost -->
+      <p>Avg damage cost <b>$5,234</b> per month</p>
+    </div>
+
+    <!-- Additional widgets as needed -->
+    <div class="widget">
+        <h2>Expiring Contracts</h2>
+        <p>You have 0 expiring contracts within 90 days.</p>
+        <img src="bar-graph-placeholder.png" alt="Bar Graph Placeholder">
+        <button class="button">Fleet Report</button>
+      </div>
+  </div>
+</div>
+
+</body>
+</html>
