@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Short Term Rental</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0; /* Removes default margin */
+    display: flex; /* Use flexbox to layout navbar and main content side by side */
+  }
+
+  .navbar {
+    background-color: #333;
+    width: 200px; /* Width of the navbar */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Scrollable if the content exceeds the viewport height */
+    position: fixed; /* Fixed position */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 1000; /* Ensures the navbar stays on top of other elements */
+  }
+
+  .navbar a {
+    display: block;
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+  }
+
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .navbar-brand {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .main-content {
+    margin-left: 200px; /* Add left margin to main-content, equal to the width of the navbar */
+    width: calc(100% - 200px); /* Calculate the remaining width */
+    padding: 20px; /* Add some padding */
+  }
+
+  .header {
+    text-align: center;
+    padding: 20px;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  .product {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  .product img {
+    max-width: 100%;
+    height: auto;
+  }
+  .product h3 {
+    font-size: 1em;
+    color: #333;
+  }
+  .product p {
+    font-size: 0.9em;
+    color: #666;
+  }
+  .price {
+    color: red;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  .footer {
+    /* Styles for footer */
+  }
+  .filters {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  select {
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="navbar-brand">Toyota Heavy Duty</div>
+    <a href="#home">Home</a>
+    <a href="#fleet">Ownership</a>
+    <a href="#costs">Insights</a>
+    <a href="#service">Store</a>
+    <a href="#contracts">Knowledge</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Short Term Rental</h1>
+      <div class="filters">
+        <select name="category" id="category">
+          <option value="">Category</option>
+          <option value="stackers">Stackers</option>
+          <!-- More categories -->
+        </select>
+        <select name="load" id="load">
+          <option value="">Weight of load?</option>
+          <option value="1t">1 ton</option>
+          <!-- More options -->
+        </select>
+        <select name="height" id="height">
+          <option value="">Height to lift?</option>
+          <option value="2m">2 meters</option>
+          <!-- More options -->
+        </select>
+        <select name="subcategory" id="subcategory">
+          <option value="">Subcategory</option>
+          <option value="electric">Electric</option>
+          <!-- More subcategories -->
+        </select>
+      </div>
+    </div>
+      
+      <section class="product-grid">
+        <!-- Product 1 -->
+        <div class="product">
+          <img src="path-to-bt-staxio-image.jpg" alt="BT Staxio 1.2t Stacker">
+          <h3>BT Staxio 1.2t Stacker</h3>
+          <p>High stacking height for medium-duty usage</p>
+          <div class="product-details">
+            <div class="product-specs">
+              <p>1200 kg</p>
+              <p>2700 mm</p>
+              <p>6 km/h</p>
+            </div>
+            <div class="product-price">
+              <p>SEK 1,050</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Product 2 -->
+        <div class="product">
+          <img src="path-to-toyota-traigo-image.jpg" alt="Toyota Traigo 48, 4-wheel 2t Compact">
+          <h3>Toyota Traigo 48, 4-wheel 2t Compact</h3>
+          <p>Extra compact, operates indoors and outdoors with ease</p>
+          <div class="product-details">
+            <div class="product-specs">
+              <p>2000 kg</p>
+              <p>7500 mm</p>
+              <p>6.25 km/h</p>
+            </div>
+            <div class="product-price">
+              <p>SEK 4,214</p>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+            <img src="path-to-bt-staxio-with-arms-image.jpg" alt="BT Staxio 1.2t Stacker with Elevating support arms">
+            <h3>BT Staxio 1.2t Stacker with Elevating support arms</h3>
+            <p>Elevating support arms for use on uneven floors</p>
+            <div class="product-details">
+              <div class="product-specs">
+                <p>1200 kg</p>
+                <p>1500 mm</p>
+                <p>6 km/h</p>
+              </div>
+              <div class="product-price">
+                <p>SEK 1,337</p>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Product 4: Toyota Traigo 48, 4-wheel 2t -->
+          <div class="product">
+            <img src="path-to-toyota-traigo-48-4w-2t-image.jpg" alt="Toyota Traigo 48, 4-wheel 2t">
+            <h3>Toyota Traigo 48, 4-wheel 2t</h3>
+            <p>Operates indoors and outdoors with ease</p>
+            <div class="product-details">
+              <div class="product-specs">
+                <p>1500 kg</p>
+                <p>7500 mm</p>
+                <p>6 km/h</p>
+              </div>
+              <div class="product-price">
+                <p>SEK 3,990</p>
+              </div>
+            </div>
+          </div>
+        
+      
+        <!-- ... Additional products here ... -->
+      
+      </section>
+      
+      <footer class="footer">
+        <!-- Footer content goes here -->
+      </footer>
+
+</body>
+</html>
