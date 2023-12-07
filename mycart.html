@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart</title>
+<style>
+.summary-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.summary-card {
+  flex-basis: calc(33.333% - 10px);
+  background: #FFF;
+  border: 1px solid #E4E4E4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+}
+
+.summary-header {
+  padding: 10px;
+  background: #F7F7F7;
+  border-bottom: 1px solid #E4E4E4;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.summary-icon {
+  margin-right: 5px;
+}
+
+.summary-content {
+  padding: 10px;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+.cart-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  border-bottom: 2px solid #e4e4e4;
+  padding-bottom: 10px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 15px 0;
+}
+
+.product-info {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.product-info > img {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.product-type,
+.quantity,
+.price,
+.subtotal {
+  flex-basis: 100px;
+  text-align: center;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-button {
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  padding: 5px 10px;
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.quantity-value {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 50px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+.price,
+.subtotal {
+  font-weight: bold;
+  color: #333;
+}
+
+.subtotal {
+  text-align: right;
+}
+
+.remove-button {
+  cursor: pointer;
+  color: #999;
+  font-size: 18px;
+}
+
+input[type='text'] {
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type='text']:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+input[type='button'] {
+  padding: 10px 20px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+input[type='button']:hover {
+  background-color: #4cae4c;
+}
+
+/* Existing styles... */
+
+.customer-information-section {
+  background: #FFFFFF;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #E4E4E4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.customer-header {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.customer-icon {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.customer-content strong {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.customer-content p {
+  margin: 0 0 10px 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.create-address-button {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.create-address-button:hover {
+  background-color: #4cae4c;
+}
+
+.reference-marking input[type="text"],
+.reference-marking textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.reference-marking input[type="text"]:focus,
+.reference-marking textarea:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.reference-marking textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Adjust the following according to the screenshot's design details */
+.customer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+
+/* Adjusting the input and textarea styles to match the design */
+input[type="text"],
+textarea {
+  background-color: #f8f8f8;
+  border: 1px solid #e6e6e6;
+  color: #333;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+  color: #999;
+}
+
+
+  /* Further styling is needed to match your screenshot exactly */
+</style>
+</head>
+<body>
+  <div class="cart-container">
+    <h2 class="cart-header">Your Cart</h2>
+    <div class="cart-item">
+        <td><img src="path-to-bt-staxio-image.jpg" alt="Mock Product" style="width:200px;height:200px;"></td>
+        <div class="product-info">BT Levio 1.4t Powered Pallet Truck<br>Ships within: Delivery time on request</div>
+        <div class="product-type">Direct purchase</div>
+        <div class="quantity">
+          <div class="quantity-selector">
+            <button class="quantity-button">-</button>
+            <input type="text" class="quantity-value" value="1">
+            <button class="quantity-button">+</button>
+          </div>
+        </div>
+        <div class="price">$13,000</div>
+        <div class="subtotal">$13,890</div>
+        <div class="remove-button">🗑️</div>
+      </div>
+      <div class="cart-item">
+        <td><img src="path-to-toyota-traigo-image.jpg" alt="Mock Product 2" style="width:200px;height:200px;"></td>
+        <div class="product-info">Toyota Traigo 48, 4-wheel 2t Compact<br>Ships within: Delivery time on request</div>
+        <div class="product-type">Rent</div>
+        <div class="quantity">
+          <div class="quantity-selector">
+            <button class="quantity-button">-</button>
+            <input type="text" class="quantity-value" value="1">
+            <button class="quantity-button">+</button>
+          </div>
+        </div>
+        <div class="price">$40,020</div>
+        <div class="subtotal">$40,900</div>
+        <div class="remove-button">🗑️</div>
+      </div>
+      <div class="cart-item">
+        <td><img src="path-to-bt-staxio-image.jpg" alt="Mock Product 2" style="width:200px;height:200px;"></td>
+        <div class="product-info">BT Staxio 1.2t Stacker with Elevating support arms<br>Ships within: Delivery time on request</div>
+        <div class="product-type">Direct purchase</div>
+        <div class="quantity">
+          <div class="quantity-selector">
+            <button class="quantity-button">-</button>
+            <input type="text" class="quantity-value" value="1">
+            <button class="quantity-button">+</button>
+          </div>
+        </div>
+        <div class="price">$20,020</div>
+        <div class="subtotal">$20,020</div>
+        <div class="remove-button">🗑️</div>
+      </div>
+    <!-- Repeat for each cart item -->
+    
+    <label for="promo-code">Do you have a promotion code?</label>
+    <input type="text" id="promo-code" placeholder="ENTER HERE">
+    
+    <!-- Additional cart items would be added here, with their own 'cart-item' divs -->
+
+  </div>
+  <!-- Existing cart HTML above -->
+
+<!-- Summary Section -->
+<div class="summary-section">
+    <!-- Direct Purchase Summary -->
+    <div class="summary-card">
+      <div class="summary-header">
+        <span class="summary-icon">📦</span>
+        Direct Purchase Summary
+      </div>
+      <div class="summary-content">
+        <div>2 x Product</div>
+        <div>$30,031</div>
+        <div>Shipping</div>
+        <div>$250</div>
+        <div class="summary-total">
+          <strong>Total</strong>
+          <strong>$30,281</strong>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Rental Summary -->
+    <div class="summary-card">
+      <div class="summary-header">
+        <span class="summary-icon">📑</span>
+        Rental Summary
+      </div>
+      <div class="summary-content">
+        <div>1 x Rental Contract</div>
+        <div class="summary-total">Rental Fee</div>
+        <div class="summary-total">$504.6 / month</div>
+      </div>
+    </div>
+  
+    <!-- Service Summary -->
+    <div class="summary-card">
+      <div class="summary-header">
+        <span class="summary-icon">🔧</span>
+        Service Summary
+      </div>
+      <div class="summary-content">
+        <div>1 x Service Contract</div>
+        <div class="summary-total">Service Fee</div>
+        <div class="summary-total">$145.85 / month</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="customer-information-section">
+    <div class="customer-header">
+      <span class="customer-icon">🏢</span>
+      Customer Information
+    </div>
+    
+    <div class="customer-content">
+      <div class="company-information">
+        <strong>Company information</strong>
+        <p>THD MANUFACTURING INDIANA</p>
+        <p>556198286801</p>
+      </div>
+      
+      <div class="address-information">
+        <strong>Address</strong>
+        <p>BLOOMINGTON 8</p>
+        <p>IN</p>
+        <p>47408</p>
+      </div>
+      
+      <div class="delivery-address">
+        <strong>Delivery address</strong>
+        <p>BLOOMINGTON, IN, EXAMPLE ADDRESS</p>
+      </div>
+  
+      <button type="button" class="create-address-button">Create Address</button>
+      
+      <div class="reference-marking">
+        <input type="text" placeholder="Enter your internal order number">
+        <input type="text" placeholder="Enter reference number">
+        <input type="text" placeholder="Enter goodsmarking">
+        <textarea placeholder="Additional information"></textarea>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
