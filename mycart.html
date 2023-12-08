@@ -5,6 +5,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Cart</title>
 <style>
+.navbar {
+    background-color: #333;
+    width: 200px;
+    height: 100vh;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .navbar a {
+    display: block;
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+  }
+
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .navbar-brand {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+  }
+  .cart-button-container {
+  text-align: right;
+  padding: 10px;
+  position: fixed; /* Fixed position */
+  top: 0; /* Align to the top */
+  right: 0; /* Align to the right */
+  z-index: 1000; /* Ensure it's above other items */
+}
+
+.go-to-cart-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.go-to-cart-button:hover {
+  background-color: #0056b3;
+}
+
+/* When adding a fixed element, you may want to add padding to the body to avoid content being hidden under it */
+body {
+  padding-top: 50px; /* Adjust the padding to match the height of your fixed header */
+}
+
 .summary-section {
   display: flex;
   justify-content: space-around;
@@ -44,10 +104,11 @@
 }
 
 body {
+  padding-top: 50px; /* Height of your fixed header if there's any */
+  padding-left: 200px; /* Equal to the navbar width to prevent overlap */
+  background: #f4f4f4;
   font-family: 'Arial', sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f4f4f4;
 }
 
 .cart-container {
@@ -272,6 +333,17 @@ textarea::placeholder {
 </style>
 </head>
 <body>
+  <div class="navbar">
+    <div class="navbar-brand">Toyota Heavy Duty</div>
+    <a href="#home">Home</a>
+    <a href="#fleet">Ownership</a>
+    <a href="#costs">Insights</a>
+    <a href="#service">Store</a>
+    <a href="#contracts">Knowledge</a>
+</div>
+  <div class="cart-button-container">
+    <button type="button" class="go-to-cart-button">Go to Cart</button>
+  </div>
   <div class="cart-container">
     <h2 class="cart-header">Your Cart</h2>
     <div class="cart-item">
@@ -387,21 +459,14 @@ textarea::placeholder {
         <strong>Company information</strong>
         <p>THD MANUFACTURING INDIANA</p>
         <p>556198286801</p>
-      </div>
-      
-      <div class="address-information">
-        <strong>Address</strong>
-        <p>BLOOMINGTON 8</p>
-        <p>IN</p>
-        <p>47408</p>
-      </div>
-      
-      <div class="delivery-address">
         <strong>Delivery address</strong>
         <p>BLOOMINGTON, IN, EXAMPLE ADDRESS</p>
+        <button type="button" class="create-address-button">Create Address</button>
       </div>
+
+
   
-      <button type="button" class="create-address-button">Create Address</button>
+      
       
       <div class="reference-marking">
         <input type="text" placeholder="Enter your internal order number">
