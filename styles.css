@@ -1,12 +1,4 @@
-/* Sidebar styles */
-.sidebar {
-  background-color: #263238; /* Dark color for the sidebar background */
-  color: white;
-  width: 240px; /* Set a fixed width for the sidebar */
-  height: 100vh;
-  padding-top: 20px;
-  box-sizing: border-box;
-}
+
 
 .logo img {
   display: block;
@@ -14,67 +6,24 @@
   width: 100px; /* Adjust logo size as necessary */
 }
 
-.sidebar-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
 
-.sidebar-nav li a {
-  color: white; /* Text color for sidebar links */
-  padding: 10px 20px;
-  display: block;
-  text-decoration: none;
-  font-size: 14px;
-}
 
-.sidebar-nav li.active a,
-.sidebar-nav li a:hover {
-  background-color: #37474F; /* Lighter background color for active/hover links */
-}
-
-.sidebar-section {
-  margin-top: 30px;
-}
-
-.sidebar-section h3 {
-  font-size: 16px;
-  margin: 0;
-  padding: 10px 20px;
-  background-color: #455A64; /* Background color for section headings */
-  border-bottom: 1px solid #37474F; /* Border to separate the heading */
-}
-
-.sidebar-section ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar-section ul li a {
-  padding: 10px 20px;
-  display: block;
-  color: #B0BEC5; /* Lighter text color for sidebar links */
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.sidebar-section ul li a:hover {
-  background-color: #37474F; /* Lighter background color for hover links */
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    display: flex;
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0; /* Removes default margin */
+    display: flex; /* Use flexbox to layout navbar and main content side by side */
+    padding-top: 50px; /* Adjust the padding to match the height of your fixed header */
   }
+  
   .navbar {
     background-color: #333;
-    width: 200px;
-    height: 100vh;
-    overflow: auto;
+    width: 200px; /* Width of the navbar */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Scrollable if the content exceeds the viewport height */
+    position: fixed; /* Fixed position */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 1000; /* Ensures the navbar stays on top of other elements */
   }
   .navbar a {
     display: block;
@@ -93,13 +42,8 @@ body {
     padding: 20px;
     font-size: 20px;
   }
-  .dashboard-container {
-    flex-grow: 1;
-    margin: 20px;
-    background: #fff;
-    padding: 20px;
-    overflow-x: auto;
-  }
+  
+
   .header {
     text-align: center;
     padding-bottom: 20px;
@@ -188,8 +132,7 @@ body {
     color: #666;
   }
   .map {
-    height: 200px;
-    background: url('map-placeholder.png') no-repeat center center;
+    height: 100px;
     background-size: cover;
   }
   .graph {
@@ -219,4 +162,11 @@ body {
   .flex-item:last-child {
     margin-right: 0;
   }
-  
+  .dashboard-container {
+    flex-grow: 1;
+    margin-left: 200px; /* Adjust this value to match or exceed the width of your navbar */
+    margin-top: 20px; /* Adjust as needed */
+    background: #fff;
+    padding: 20px;
+    overflow-x: auto;
+  }

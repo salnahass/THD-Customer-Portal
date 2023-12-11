@@ -31,14 +31,13 @@
 }
 
 /* When adding a fixed element, you may want to add padding to the body to avoid content being hidden under it */
-body {
-  padding-top: 50px; /* Adjust the padding to match the height of your fixed header */
-}
+
 
   body {
     font-family: 'Arial', sans-serif;
     margin: 0; /* Removes default margin */
     display: flex; /* Use flexbox to layout navbar and main content side by side */
+    padding-top: 50px; /* Adjust the padding to match the height of your fixed header */
   }
 
   .navbar {
@@ -131,18 +130,20 @@ body {
 
   <div class="navbar">
     <div class="navbar-brand">Toyota Heavy Duty</div>
-    <a href="#home">Home</a>
-    <a href="#fleet">Ownership</a>
-    <a href="#costs">Insights</a>
-    <a href="#service">Store</a>
+    <a href="dashboard.html">Home</a>
+    <a href="savedconfigs.html">Ownership</a>
+    <a href="fleetreport.html">Insights</a>
+    <a href="purchasepage.html">Store</a>
     <a href="#contracts">Knowledge</a>
   </div>
   <div class="cart-button-container">
-    <button type="button" class="go-to-cart-button">Go to Cart</button>
+    <a href="mycart.html" class="go-to-cart-link">
+      <button type="button" class="go-to-cart-button">Go to Cart</button>
+    </a>
   </div>
   <div class="main-content">
     <div class="header">
-      <h1>Short Term Rental</h1>
+      <h1>Select Your Toyota Heavy Duty Forklift</h1>
       <div class="filters">
         <select name="category" id="category">
           <option value="">Category</option>
@@ -170,8 +171,9 @@ body {
       <section class="product-grid">
         <!-- Product 1 -->
         <div class="product">
-          <img src="path-to-bt-staxio-image.jpg" alt="BT Staxio 1.2t Stacker">
-          <h3>BT Staxio 1.2t Stacker</h3>
+          <a href="configuretruck.html">
+            <img src="path-to-bt-staxio-image.jpg" alt="BT Staxio 1.2t Stacker">
+          </a>          <h3>BT Staxio 1.2t Stacker</h3>
           <p>High stacking height for medium-duty usage</p>
           <div class="product-details">
             <div class="product-specs">
